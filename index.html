@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CC Practical</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  h1, h2, h3 {
+    color: #333;
+  }
+  ol {
+    padding-left: 20px;
+  }
+  ol li {
+    margin-bottom: 10px;
+  }
+</style>
+</head>
+<body>
+    <h1>Practical 1: Setting up of Azure Account</h1>
+
+    <ol>
+      <li>Search for “Microsoft Azure for Students” on Google and click on the link.</li>
+      <li>Click on “Start Free”</li>
+      <li>Sign in to Microsoft using the email address and password.</li>
+      <li>Fill in the details mentioned and verify the academic status.</li>
+      <li>The student version of Azure has $100 credits free for students.</li>
+    </ol>
+
+    <h2>Practical 2: Creation of Virtual Machine</h2>
+
+    <ol>
+      <li>Go to Home on Azure and click on “Virtual machines”</li>
+      <li>Click on “Create” and select “Azure virtual machine - Create a virtual machine hosted by Azure”</li>
+      <li>Enter the name of the virtual machine as well as change the region to India.</li>
+      <li>Then click on “Review + create”. Once the validation is complete, click on “Create”</li>
+      <li>The machine will be created along with the SSH keys. Download the private key pair present as a “PEM file” and save it. Click on “Go to resource”</li>
+      <li>Under “Connect” in Settings, select the “Native SSH”.</li>
+      <li>Follow the instructions given to connect the local machine i.e. copy the path of the private key (PEM File) and paste it. Then, open the local shell (Command Prompt) on the PC and execute the command.</li>
+      <li>The command is executed as shown below in the Command Prompt and the local machine is now connected to the virtual machine.</li>
+    </ol>
+
+    <h2>Practical 3: Creating Excel Blob using Storage Account in Azure</h2>
+
+    <ol>
+      <li>Go to Home on Azure and click on “Virtual machines”</li>
+      <li>Click on “Create” and select “Azure virtual machine - Create a virtual machine hosted by Azure”</li>
+      <li>Enter the name of the virtual machine as well as change the region to India.</li>
+      <li>Then click on “Review + create”. Once the validation is complete, click on “Create”</li>
+      <li>The machine will be created along with the SSH keys. Download the private key pair present as a “PEM file” and save it.</li>
+      <li>Click on “Go to resource”</li>
+      <li>Under “Connect” in Settings, select the “Native SSH”.</li>
+      <li>Follow the instructions given to connect the local machine i.e copy the path of the private key (PEM File) and paste it. Then, open the Command Prompt and execute the command.</li>
+      <li>The command is executed as shown below in the Command Prompt and the local machine is now connected to the virtual machine.</li>
+      <li>Go to Home and click on “Storage Accounts”.</li>
+      <li>Click on “Create”.</li>
+      <li>Enter the name of the storage account and fill in the required information. Click on “Review”.</li>
+      <li>Then, click on “Create”.</li>
+      <li>Here, the storage account has been created and deployment is completed. Click on “Go to resource”.</li>
+      <li>Click on “Upload”.</li>
+      <li>Create an Excel file as below and save it.</li>
+      <li>Upload the file by clicking on “Browse for files”. Create a new container and name it.</li>
+      <li>Navigate to “Storage Browser” and enter the blob container to see if the Excel file has been uploaded.</li>
+    </ol>
+
+    <h2>Practical 4: Creating Image Blob using Storage Account in Azure</h2>
+
+<ol>
+  <li>Go to Home on Azure and click on “Virtual machines”</li>
+  <li>Click on “Create” and select “Azure virtual machine - Create a virtual machine hosted by Azure”</li>
+  <li>Enter the name of the virtual machine as well as change the region to India.</li>
+  <li>Then click on “Review + create”. Once the validation is complete, click on “Create”</li>
+  <li>The machine will be created along with the SSH keys. Download the private key pair present as a “PEM file” and save it.</li>
+  <li>Click on “Go to resource”</li>
+  <li>Under “Connect” in Settings, select the “Native SSH”.</li>
+  <li>Follow the instructions given to connect the local machine i.e copy the path of the private key (PEM File) and paste it. Then, open the Command Prompt and execute the command.</li>
+  <li>The command is executed as shown below in the Command Prompt and the local machine is now connected to the virtual machine.</li>
+  <li>Go to Home and click on “Storage Accounts”.</li>
+  <li>Click on “Create”.</li>
+  <li>Enter the name of the storage account and fill in the required information. Click on “Review”.</li>
+  <li>Then, click on “Create”.</li>
+  <li>Here, the storage account has been created and deployment is completed. Click on “Go to resource”.</li>
+  <li>Click on “Upload”.</li>
+  <li>Download an image and save it. Upload the file by clicking on “Browse for files”. Create a new container and name it.</li>
+  <li>Navigate to “Storage Browser” and enter the blob container to see if the image file has been uploaded.</li>
+</ol>
+
+<h2>Practical 5: SQL Database</h2>
+
+<ol>
+  <li>Go to Home and click on “SQL databases”</li>
+  <li>Click on “Create SQL database” to create a new database.</li>
+  <li>Enter the details for the SQL Database Server such as name and location.</li>
+  <li>Select the “Authentication method” as “Use SQL authentication”. Enter the admin login and password (Remember the login and password). Then click “Ok”</li>
+  <li>Under the “Review + create” tab, click on “Create”.</li>
+  <li>After deployment has been completed, click on “Go to resource”</li>
+  <li>Click on “Properties”.</li>
+  <li>Click on “Networking” and then select “Selected Networks” under Public access.</li>
+  <li>Click on “Add your client IPv4 address” and select the “Allow Azure services and resources to access this server” checkbox. Then click “Save”</li>
+  <li>Navigate to the “Query editor” tab. Create a table using SQL queries and insert values into the table.</li>
+  <li><code>CREATE TABLE Users (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    Username VARCHAR(50),
+    Email VARCHAR(100)
+);</code></li>
+  <li><code>INSERT INTO Users (Username, Email) VALUES ('JohnDoe', 'john@example.com');</code></li>
+  <li><code>INSERT INTO Users (Username, Email) VALUES ('JaneDoe', 'jane@example.com');</code></li>
+  <li>Show all users:</li>
+  <li><code>SELECT * FROM Users;</code></li>
+  <li>Open Excel on the PC. Navigate to the Data tab. Click on “Get Data”, select “From Azure” then select “From Azure SQL Database”</li>
+  <li>From overview in the Azure database, copy and paste the Server name and then click “OK”</li>
+  <li>Enter the details asked i.e. username and password and then click on “Connect”.</li>
+  <li>The following tab opens up and you have to select the database</li>
+  <li>The data stored is displayed on the Excel sheet</li>
+</ol>
+
+<h2>Practical 6: Power BI (Data Analytics)</h2>
+
+<ol>
+  <li>Login to Azure and click on “More Services”</li>
+  <li>Under “All services”, click “Analytics”</li>
+  <li>Click on “Analysis Services”</li>
+  <li>Click on “Create” in Analysis Services</li>
+  <li>Enter the details and create a new resource group. Select “B2 (80 Query Processing Units)” as the Pricing tier</li>
+  <li>After deployment is complete, click on “Go to resource”</li>
+  <li>Select “New model”</li>
+  <li>Choose the data source as “Sample data” and then click on “Add”</li>
+  <li>Navigate to the “Manage” tab and the sample data will be visible there.</li>
+  <li>Right-click on the sample data and select “Open in Power BI Desktop”. Save the file</li>
+  <li>Once Power BI is opened, click on “Import data from Excel”</li>
+  <li>Add an Excel sheet into Power BI and click on “Load”</li>
+  <li>We use Power BI in order to visualize the data stored. On the right-hand side of the screen, select the visualizations you want (In this case, it is a table) and select the various columns you want to visualize.</li>
+  <li>The output of the visualization is as shown below</li>
+  <li>Similarly, we can use other visualizations in order to visualize the data</li>
+</ol>
+
+<h2>Practical 7: Web Feeds</h2>
+
+<ol>
+  <li>Download the XAMPP application.</li>
+  <li>Write the following HTML code and PHP code and save both the files in a new folder in the xampp/htdocs folder</li>
+  <li>Start the “Apache” service</li>
+  <li>In the browser, navigate to localhost/foldername (here it is localhost/ccprac). Then select the HTML file (ccprac5.html)</li>
+  <li>Select any of the options and the RSS feed will be displayed</li>
+</ol>
+
+<h3>HTML Code:</h3>
+<code>
+  &lt;html&gt;
+  &lt;head&gt;
+  &lt;script&gt; 
+  function showRSS(str) {
+    if (str.length == 0) {
+      document.getElementById("output").innerHTML = "";
+      return;
+    }
+    if (window.XMLHttpRequest) {
+      xmlhttp = new XMLHttpRequest();
+    } else {
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function() {
+      if (xmlhttp.readyState == 4 &amp;&amp; xmlhttp.status == 200) {
+        document.getElementById("output").innerHTML = xmlhttp.responseText;
+      }
+    }
+    xmlhttp.open("GET","ccpracphp.php?q="+str,true);
+    xmlhttp.send();
+  }
+  &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;p&gt;Please Select an option to get RSS:&lt;/p&gt;
+  &lt;form&gt;
+  &lt;select onchange = "showRSS(this.value)"&gt;
+  &lt;option value = ""&gt;Select an RSS-feed:&lt;/option&gt;
+  &lt;option value = "cnn"&gt;CNN&lt;/option&gt;
+  &lt;option value = "bbc"&gt;BBC News&lt;/option&gt;
+  &lt;option value = "pcw"&gt;PC World&lt;/option&gt;
+  &lt;/select&gt;
+  &lt;/form&gt;
+  &lt;br&gt;
+  &lt;div id = "output"&gt;RSS-feeds&lt;/div&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code>
+<h3>PHP Code:</h3>
+<code>
+  &lt;?php
+  $q = isset($_GET["q"]) ? $_GET["q"] : "";
+  
+  $xml = "";
+  
+  if ($q == "cnn") {
+      $xml = "http://rss.cnn.com/rss/cnn_topstories.rss";
+  } elseif ($q == "bbc") {
+      $xml = "http://newsrss.bbc.co.uk/rss/newsonline_world_edition/americas/rss.xml";
+  } elseif ($q == "pcw") {
+      $xml = "http://www.pcworld.com/index.rss";
+  }
+  
+  if ($xml !== "") {
+      $xmlDoc = new DOMDocument();
+      if ($xmlDoc->load($xml)) {
+          $channel = $xmlDoc->getElementsByTagName('channel')->item(0);
+          $channel_title = $channel->getElementsByTagName('title')
+              ->item(0)->childNodes->item(0)->nodeValue;
+          $channel_link = $channel->getElementsByTagName('link')
+              ->item(0)->childNodes->item(0)->nodeValue;
+          $channel_desc = $channel->getElementsByTagName('description')
+              ->item(0)->childNodes->item(0)->nodeValue;
+  
+          echo("&lt;p&gt;&lt;a href='" . $channel_link . "'&gt;" . $channel_title . "&lt;/a&gt;&lt;/p&gt;");
+          echo("&lt;p&gt;" . $channel_desc . "&lt;/p&gt;");
+  
+          $x = $xmlDoc->getElementsByTagName('item');
+          for ($i = 0; $i &lt;= 2; $i++) {
+              $item_title = $x->item($i)->getElementsByTagName('title')
+                  ->item(0)->childNodes->item(0)->nodeValue;
+              $item_link = $x->item($i)->getElementsByTagName('link')
+                  ->item(0)->childNodes->item(0)->nodeValue;
+  
+              echo ("&lt;p&gt;&lt;a href='" . $item_link . "'&gt;" . $item_title . "&lt;/a&gt;&lt;/p&gt;");
+          }
+      } else {
+          echo "Failed to load XML";
+      }
+  } else {
+      echo "No RSS feed selected";
+  }
+  ?&gt;
+</code>
+
+<h2>Practical 8: AI Services in Azure</h2>
+
+<ol>
+  <li>Log in to Azure and click on “More Services”</li>
+  <li>Under “AI + machine learning”, click on “Azure AI Services”</li>
+  <li>Click on “Speech Service”</li>
+  <li>Create a new Resource group and fill in the rest of the details. Under “Pricing tier”, click on “Free F0”</li>
+  <li>Verify that all the details entered are correct and click “Create”</li>
+  <li>Once the deployment is complete, click on “Go to resource”</li>
+  <li>Under “Get Started”, click on “Go to Speech Studio”</li>
+  <li>Speech studio is displayed below. Then click on “Captioning with speech to text”</li>
+  <li>Under “Try it out”, click on “Try with your own video”</li>
+  <li>Go to “YouTube” and copy the link of any video. Then go to “YouTube to MP3” and convert the video to MP4. Download it</li>
+  <li>Navigate back to Speech Studio -&gt; Captioning with speech to text. Upload the downloaded file</li>
+  <li>The audio is converted from speech to text. You can change the mode, language, and the number of lines that you want to be displayed</li>
+  <li>Under “Text to Speech”, click on “Voice Gallery”</li>
+  <li>Under “Voice details”, click on “Go to Audio Content Creation”</li>
+  <li>You can enter any text that will be converted into speech</li>
+  <li>Under “Tuning”, select the three dots. Change the “Voice profile” to Tony and click Confirm</li>
+  <li>Once you click on the “Play” button, the text will be converted to speech</li>
+  <li>Go to “YouTube” and copy the link of any video. Then go to “YouTube to MP3” and convert the video to MP3. Download it</li>
+  <li>Navigate to the “Speech Studio”. Under “Speech to Text”, select “Real-time speech to text”. Upload the audio file downloaded. The audio is now converted into text</li>
+  <li>Go to “YouTube” and copy the link of any video. Then go to “YouTube to MP3” and convert the video to MP3. Download it</li>
+  <li>Navigate to the “Speech Studio”. Under “Speech to Text”, select “Speech Translation”. Upload the audio file downloaded and change the target language to whichever language you want the text to be translated into. The audio is translated into the language you have chosen</li>
+  <li>Log into Azure and click on “Azure AI Services”</li>
+  <li>Under Azure AI Services, click on “Create Computer Vision”</li>
+  <li>Add a new resource group and enter the details of the resource. Choose the pricing tier as “Free F0(20 Calls per minute, 5K Calls per month)</li>
+  <li>Review the information entered and then click on “Create”</li>
+  <li>Once the deployment is complete, click on “Go to Resource”</li>
+  <li>Under “Get Started”, click on “Go to Vision Studio”</li>
+  <li>The Vision Studio opens up on a new page. Here, click on “Add captions to images”</li>
+  <li>Select the image that you want to add captions to or upload your own image</li>
+  <li>Go back to the Vision Studio and now select “Extract common tags from images”. Here, you can drop your own file or use the pre-defined files and see the attributes that have been detected</li>
+  <li>Go back to the Vision Studio and now select “Video Retrieval and Summary”. Click on “Industrial”. The video is then analyzed and summarized</li>
+</ol>
+
+<h2>Practical 9: SSH Key Generation</h2>
+
+<ol>
+  <li>Login to Azure and click on “More Services”</li>
+  <li>Click on “Compute”</li>
+  <li>Under “Infrastructure as a Service”, click on “SSH Keys”</li>
+  <li>Click on “Create SSH key”</li>
+  <li>Create a new resource group and enter the rest of the details such as key pair name. Select “Generate new key pair” then “Review + create”</li>
+  <li>Verify if all the details entered are correct and then click on “Create”</li>
+  <li>Click on “Download the private key and create the resource.” and save the PEM file</li>
+  <li>The SSH public key has been generated</li>
+</ol>
+
+<h2>Practical 10: Virtualization</h2>
+
+<ol>
+  <li>Login to Azure and click on “Virtual Machine”</li>
+  <li>Create a virtual machine, namely VirtualMachine1</li>
+  <li>Choose “Windows” from the list and then enter the details for the username and password (Remember the password used). Then select the checkbox and click “Review and Create”</li>
+  <li>Click on “Create” and the virtual machine is deployed</li>
+  <li>Once the deployment is complete, click on “Go to Resource”</li>
+  <li>Click on “Connect” in VirtualMachine1</li>
+  <li>In “Native RDP”, click on “Select”</li>
+  <li>A pop-up window will appear and click on “Connect”</li>
+  <li>Enter the credentials i.e. the username and password and then click “OK”</li>
+  <li>Then click on Yes to proceed with the connection</li>
+  <li>Follow the same steps and create a second virtual machine. Here, while creating the second virtual machine, go to the Networking tab and then make sure that the virtual network of the VM2 is the same as that of VM1</li>
+  <li>Now, VirtualMachine1 will be open. Go to the Firewall Customize Settings and turn it off. Do the same for VirtualMachine2 as well</li>
+  <li>In VirtualMachine2, go to the command prompt and type “ipconfig” to get the IPv4 address</li>
+  <li>Go to VirtualMachine1 and ping VirtualMachine2 using the ping command and the IP address of VirtualMachine2</li>
+</ol>
+
+<h2>Practical 11: Web Hosting</h2>
+
+<ol>
+  <li>In Visual Studio, create a new HTML page with the following code:</li>
+</ol>
+
+<code>
+  &lt;html&gt;
+  &lt;head&gt;
+  &lt;title&gt; table &lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;form&gt;
+  &lt;h1&gt;HTML form&lt;/h1&gt;
+  &lt;table&gt;
+  &lt;tr&gt;
+  &lt;td&gt;First name :&lt;/td&gt;
+  &lt;td&gt;&lt;input type="text"&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+  &lt;td&gt;last name :&lt;/td&gt;
+  &lt;td&gt;&lt;input type="text"&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+  &lt;td&gt;Date of birth :&lt;/td&gt;
+  &lt;td&gt;&lt;input type="date"&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+  &lt;td&gt;Email id :&lt;/td&gt;
+  &lt;td&gt;&lt;input type="email"&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+  &lt;td&gt;Mobile number :&lt;/td&gt;
+  &lt;td&gt;&lt;input type="integer"&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+  &lt;th&gt;&lt;input type="submit" value=Submit&gt;&nbsp &nbsp&lt;input type="reset" value=Reset&gt;&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;/table&gt;
+  &lt;/form&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code>
+
+<ol start="2">
+  <li>Login to Azure and then click on “More Services”</li>
+  <li>Search for Storage Account and click on it</li>
+  <li>Click on “Create Storage Account”</li>
+  <li>Enter the details of the storage account like the name, region. Then click on “Review”</li>
+  <li>Click on “Create” after verifying the details</li>
+  <li>Once the deployment has been completed, click on “Go to resource”</li>
+  <li>Click on “Capabilities” and then click on “Static website”</li>
+  <li>Then switch the “Disabled” toggle to “Enabled”</li>
+  <li>Enter the name of the HTML document and the error document. Then click on “Save”</li>
+  <li>Go back to the storage account created and navigate to the “Configuration” tab. Then click “Enabled” in “Allow Blob anonymous access”</li>
+  <li>In the storage account, under Data Storage, click on “Containers”</li>
+  <li>Add a new container by clicking on the + (plus) sign</li>
+  <li>Enter the name of the container then click on Create</li>
+  <li>Now, change the access level to “Container(anonymous read access for containers and blobs)” and click on OK</li>
+  <li>Click on “Upload”</li>
+  <li>Select the HTML file and click on “Upload”</li>
+  <li>Click on the blob created and then copy the URL available: https://htmlpage123.blob.core.windows.net/loginpage/HTML_Login.html</li>
+  <li>Paste the URL in the browser and the web page is now hosted</li>
+</ol>
+
+<h2>Extra Practical</h2>
+
+<ol>
+    <li>First open Virtual Box then start ucs-4.4. Now go to chrome and in url type the ip
+        address assigned for virtual machine.</li>
+    <li><a href="https://10.0.20.124/univentation/portal/">https://10.0.20.124/univentation/portal/</a></li>
+    <li>Enter the user name and password which we have used at the time of installation.</li>
+    <li>Following window will open. Now click on ownCloud.</li>
+    <li>Enter admin name and password which you have set while creating account
+        and click on “Log in”.</li>
+    <li>Following dashboard will get load. Now go to “Users”.</li>
+    <li>You can see that there is only user which is admin, which is in Group admin</li>
+    <li>Now let’s add group, for that go to “Group” > “add group”.</li>
+    <li>Enter group name and press “enter”.</li>
+    <li>Our group is been added, now select it.</li>
+    <li>Now enter “Login Name” and “Password” for the user and click on “Create”.</li>
+    <li>Our user is been added we can change the storage limit for the new user.
+        Default limit is unlimited as mentioned above.</li>
+    <li>Let’s add another user but this time in “admin” group.</li>
+    <li>If it shows “admin, admin” in group just click on it and uncheck one “admin”.</li>
+    <li>Note: Sometimes it fails to register user in “admin” group so please check before logging out.</li>
+    <li>You can check by refreshing the page.</li>
+    <li>Now “Log out” from the admin account.</li>
+    <li>Yes we have logged in.</li>
+    <li>As you can see this user don’t have any privilege link adding users and creating group because it’s not in “admin” group, now “log out” from the account.</li>
+    <li>Now let’s try to log in from the user account who is in “admin” group.</li>
+    <li>Enter login details and click on “Log in”.</li>
+    <li>As you can see this user has the privileges of admin because he is in “admin” group.</li>
+    <li>Note: If it doesn’t shows the privilege then go to admin account and check if this user group is “admin” group.</li>
+    <li>This user has all the rights that admin possess like adding or deleting user.</li>
+</ol>
+
+</body>
+
+
+</html>
