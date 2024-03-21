@@ -151,92 +151,90 @@
   <li>Select any of the options and the RSS feed will be displayed</li>
 </ol>
 
-<h3>HTML Code:</h3>
-<code>
-  &lt;html&gt;
-  &lt;head&gt;
-  &lt;script&gt; 
-  function showRSS(str) {
-    if (str.length == 0) {
-      document.getElementById("output").innerHTML = "";
-      return;
-    }
-    if (window.XMLHttpRequest) {
-      xmlhttp = new XMLHttpRequest();
-    } else {
-      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange = function() {
-      if (xmlhttp.readyState == 4 &amp;&amp; xmlhttp.status == 200) {
-        document.getElementById("output").innerHTML = xmlhttp.responseText;
-      }
-    }
-    xmlhttp.open("GET","ccpracphp.php?q="+str,true);
-    xmlhttp.send();
+<h2>HTML Code</h2>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script&gt;
+function showRSS(str) {
+  if (str.length == 0) {
+    document.getElementById("output").innerHTML = "";
+    return;
   }
-  &lt;/script&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-  &lt;p&gt;Please Select an option to get RSS:&lt;/p&gt;
-  &lt;form&gt;
-  &lt;select onchange = "showRSS(this.value)"&gt;
-  &lt;option value = ""&gt;Select an RSS-feed:&lt;/option&gt;
-  &lt;option value = "cnn"&gt;CNN&lt;/option&gt;
-  &lt;option value = "bbc"&gt;BBC News&lt;/option&gt;
-  &lt;option value = "pcw"&gt;PC World&lt;/option&gt;
-  &lt;/select&gt;
-  &lt;/form&gt;
-  &lt;br&gt;
-  &lt;div id = "output"&gt;RSS-feeds&lt;/div&gt;
-  &lt;/body&gt;
-  &lt;/html&gt;
-</code>
-<h3>PHP Code:</h3>
-<code>
-  &lt;?php
-  $q = isset($_GET["q"]) ? $_GET["q"] : "";
-  
-  $xml = "";
-  
-  if ($q == "cnn") {
-      $xml = "http://rss.cnn.com/rss/cnn_topstories.rss";
-  } elseif ($q == "bbc") {
-      $xml = "http://newsrss.bbc.co.uk/rss/newsonline_world_edition/americas/rss.xml";
-  } elseif ($q == "pcw") {
-      $xml = "http://www.pcworld.com/index.rss";
-  }
-  
-  if ($xml !== "") {
-      $xmlDoc = new DOMDocument();
-      if ($xmlDoc->load($xml)) {
-          $channel = $xmlDoc->getElementsByTagName('channel')->item(0);
-          $channel_title = $channel->getElementsByTagName('title')
-              ->item(0)->childNodes->item(0)->nodeValue;
-          $channel_link = $channel->getElementsByTagName('link')
-              ->item(0)->childNodes->item(0)->nodeValue;
-          $channel_desc = $channel->getElementsByTagName('description')
-              ->item(0)->childNodes->item(0)->nodeValue;
-  
-          echo("&lt;p&gt;&lt;a href='" . $channel_link . "'&gt;" . $channel_title . "&lt;/a&gt;&lt;/p&gt;");
-          echo("&lt;p&gt;" . $channel_desc . "&lt;/p&gt;");
-  
-          $x = $xmlDoc->getElementsByTagName('item');
-          for ($i = 0; $i &lt;= 2; $i++) {
-              $item_title = $x->item($i)->getElementsByTagName('title')
-                  ->item(0)->childNodes->item(0)->nodeValue;
-              $item_link = $x->item($i)->getElementsByTagName('link')
-                  ->item(0)->childNodes->item(0)->nodeValue;
-  
-              echo ("&lt;p&gt;&lt;a href='" . $item_link . "'&gt;" . $item_title . "&lt;/a&gt;&lt;/p&gt;");
-          }
-      } else {
-          echo "Failed to load XML";
-      }
+  if (window.XMLHttpRequest) {
+    xmlhttp = new XMLHttpRequest();
   } else {
-      echo "No RSS feed selected";
+    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
   }
-  ?&gt;
-</code>
+  xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4 &amp;&amp; xmlhttp.status == 200) {
+      document.getElementById("output").innerHTML = xmlhttp.responseText;
+    }
+  };
+  xmlhttp.open("GET", "ccpracphp.php?q=" + str, true);
+  xmlhttp.send();
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;Please Select an option to get RSS:&lt;/p&gt;
+&lt;form&gt;
+  &lt;select onchange="showRSS(this.value)"&gt;
+    &lt;option value=""&gt;Select an RSS-feed:&lt;/option&gt;
+    &lt;option value="cnn"&gt;CNN&lt;/option&gt;
+    &lt;option value="bbc"&gt;BBC News&lt;/option&gt;
+    &lt;option value="pcw"&gt;PC World&lt;/option&gt;
+  &lt;/select&gt;
+&lt;/form&gt;
+&lt;br&gt;
+&lt;div id="output"&gt;RSS-feeds&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<h2>PHP Code</h2>
+<pre><code>&lt;?php
+$q = isset($_GET["q"]) ? $_GET["q"] : "";
+
+$xml = "";
+
+if ($q == "cnn") {
+    $xml = "http://rss.cnn.com/rss/cnn_topstories.rss";
+} elseif ($q == "bbc") {
+    $xml = "http://newsrss.bbc.co.uk/rss/newsonline_world_edition/americas/rss.xml";
+} elseif ($q == "pcw") {
+    $xml = "http://www.pcworld.com/index.rss";
+}
+
+if ($xml !== "") {
+    $xmlDoc = new DOMDocument();
+    if ($xmlDoc->load($xml)) {
+        $channel = $xmlDoc->getElementsByTagName('channel')-&gt;item(0);
+        $channel_title = $channel->getElementsByTagName('title')
+            -&gt;item(0)-&gt;childNodes-&gt;item(0)-&gt;nodeValue;
+        $channel_link = $channel->getElementsByTagName('link')
+            -&gt;item(0)-&gt;childNodes-&gt;item(0)-&gt;nodeValue;
+        $channel_desc = $channel->getElementsByTagName('description')
+            -&gt;item(0)-&gt;childNodes-&gt;item(0)-&gt;nodeValue;
+
+        echo("&lt;p&gt;&lt;a href='" . $channel_link . "'&gt;" . $channel_title . "&lt;/a&gt;&lt;/p&gt;");
+        echo("&lt;p&gt;" . $channel_desc . "&lt;/p&gt;");
+
+        $x = $xmlDoc->getElementsByTagName('item');
+        for ($i = 0; $i &lt;= 2; $i++) {
+            $item_title = $x->item($i)-&gt;getElementsByTagName('title')
+                -&gt;item(0)-&gt;childNodes-&gt;item(0)-&gt;nodeValue;
+            $item_link = $x->item($i)-&gt;getElementsByTagName('link')
+                -&gt;item(0)-&gt;childNodes-&gt;item(0)-&gt;nodeValue;
+
+            echo ("&lt;p&gt;&lt;a href='" . $item_link . "'&gt;" . $item_title . "&lt;/a&gt;&lt;/p&gt;");
+        }
+    } else {
+        echo "Failed to load XML";
+    }
+} else {
+    echo "No RSS feed selected";
+}
+?&gt;</code></pre>
 
 <h2>Practical 8: AI Services in Azure</h2>
 
@@ -312,43 +310,46 @@
   <li>In Visual Studio, create a new HTML page with the following code:</li>
 </ol>
 
-<code>
-  &lt;html&gt;
-  &lt;head&gt;
-  &lt;title&gt; table &lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
+<h2>HTML Code</h2>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;table&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
   &lt;form&gt;
-  &lt;h1&gt;HTML form&lt;/h1&gt;
-  &lt;table&gt;
-  &lt;tr&gt;
-  &lt;td&gt;First name :&lt;/td&gt;
-  &lt;td&gt;&lt;input type="text"&gt;&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-  &lt;td&gt;last name :&lt;/td&gt;
-  &lt;td&gt;&lt;input type="text"&gt;&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-  &lt;td&gt;Date of birth :&lt;/td&gt;
-  &lt;td&gt;&lt;input type="date"&gt;&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-  &lt;td&gt;Email id :&lt;/td&gt;
-  &lt;td&gt;&lt;input type="email"&gt;&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-  &lt;td&gt;Mobile number :&lt;/td&gt;
-  &lt;td&gt;&lt;input type="integer"&gt;&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-  &lt;th&gt;&lt;input type="submit" value=Submit&gt;&nbsp &nbsp&lt;input type="reset" value=Reset&gt;&lt;/th&gt;
-  &lt;/tr&gt;
-  &lt;/table&gt;
+    &lt;h1&gt;HTML form&lt;/h1&gt;
+    &lt;table&gt;
+      &lt;tr&gt;
+        &lt;td&gt;First name :&lt;/td&gt;
+        &lt;td&gt;&lt;input type="text"&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Last name :&lt;/td&gt;
+        &lt;td&gt;&lt;input type="text"&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Date of birth :&lt;/td&gt;
+        &lt;td&gt;&lt;input type="date"&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Email id :&lt;/td&gt;
+        &lt;td&gt;&lt;input type="email"&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Mobile number :&lt;/td&gt;
+        &lt;td&gt;&lt;input type="integer"&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;th&gt;
+          &lt;input type="submit" value="Submit"&gt;
+          &lt;input type="reset" value="Reset"&gt;
+        &lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
   &lt;/form&gt;
-  &lt;/body&gt;
-  &lt;/html&gt;
-</code>
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
 
 <ol start="2">
   <li>Login to Azure and then click on “More Services”</li>
